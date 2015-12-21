@@ -7,7 +7,7 @@ PS03, Password Sniffer, version 3, is a consists of four solutions:
   - PS03 Server
   - PS03 Victim
   - ChromeDecrypt
-  -  WiPS
+  - WiPS
   
 
 ![ServersideScreenshot](https://github.com/benlarsendk/PS03/blob/master/screenshot.PNG "Screenshot of serverside")
@@ -29,6 +29,7 @@ PS03 uses code from the following authors:
 
 * [DPAPI] - For decrypting Chrome passwords
 * [Mark Brittingham] - For simple AES encryption of data
+* [SQLite] - For reading the Google Chrome Login Data file
 
 
 ### Note before use
@@ -50,5 +51,6 @@ At the moment a lot of issues exist, eg. when used on a machine without chrome, 
 
    [DPAPI]: <http://www.obviex.com/samples/dpapi.aspx>
    [Mark Brittingham]: <http://stackoverflow.com/questions/165808/simple-two-way-encryption-for-c-sharp>
+   [SQLite]: <https://www.sqlite.org/>
    
 
