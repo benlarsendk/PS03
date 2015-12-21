@@ -30,6 +30,8 @@ PS03 uses code from the following authors:
 
 * [DPAPI] - For decrypting Chrome passwords
 * [Mark Brittingham] - For simple AES encryption of data
+
+
 ### Note before use
 If you inted to use this software, be aware that you need to compile the libraries first, and include the .DLL's as references in the victim-side application. 
 
