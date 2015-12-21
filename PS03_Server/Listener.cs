@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,8 +31,17 @@ namespace PS03_Server
 
         public void start()
         {
-            TcpListener listener = new TcpListener(IPAddress.Parse("192.168.1.77"), 501);
-            listener.Start();
+            TcpListener listener = new TcpListener(501);
+
+            try
+            {
+                listener.Start();
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        
             while (true)
             {
                 Socket client = listener.AcceptSocket();

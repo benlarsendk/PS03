@@ -28,6 +28,8 @@ namespace WiPS.WiFi
 
         public void ProfilesReadyHandler(string data)
         {
+            if (data.StartsWith("The Wireless AutoConfig Service"))
+                return;
             var rawprofiles = GetRawProfileLines(GetLines(data));
             foreach (var rawpro in rawprofiles)
             {
