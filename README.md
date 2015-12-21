@@ -21,10 +21,7 @@ Is the client-side/victim-side of the project. It uses the two libraries to get 
 Is a library that locates and decrypts saved passwords from google chrome. It delivers the action-url, the username and of course the password. When done, it will raise an event with the decrypted data as an eventarg.
 
 ### WiPS
-Is a library that makes use of the commandprompt to get saved WiFi-profiles, including the passwords. When done, it will raise an event with the data as an eventarg. The use of cmd wil not show any cmd-prompts on the victims machine. 
-
-### Version
-3.0.1
+Is a library that makes use of the commandprompt to get saved WiFi-profiles, including the passwords. When done, it will raise an event with the data as an eventarg. The use of cmd wil not show any cmd-prompts on the victims machine.
 
 ### Credits
 
@@ -42,6 +39,14 @@ If you inted to use this software, be aware that you need to compile the librari
 Want to contribute? Please do so. 
 At the moment a lot of issues exist, eg. when used on a machine without chrome, without WiFi and so on. This will be fixed - either by me or you.
 
+### Version
+3.0.2
+
+**CHANGELOG**
+3.0.2
+> Fixed crashes when victim doesn't use chrome or have WLAN
+> Fixed send timeout at victimside to exit quietly instead of crash
+> General cleanup
 
    [DPAPI]: <http://www.obviex.com/samples/dpapi.aspx>
    [Mark Brittingham]: <http://stackoverflow.com/questions/165808/simple-two-way-encryption-for-c-sharp>
