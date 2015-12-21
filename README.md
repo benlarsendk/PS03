@@ -2,7 +2,7 @@
 
 PS03 is a project which goal is to set more focus on security. Stop saving your passwords in chrome, don't automaticly connect to WiFi's and so on. This project shows how easy an attacker can get all your passwords ever saved, even without any anti-virus complaining. 
 
-PS03, Password stealer, version 3, is a consists of four solutions:
+PS03, Password Sniffer, version 3, is a consists of four solutions:
 
   - PS03 Server
   - PS03 Victim
