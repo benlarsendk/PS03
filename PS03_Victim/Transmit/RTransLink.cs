@@ -6,13 +6,21 @@ namespace PS03.Transmit
 {
     public class RTransLink
     {
-        public string ip = "192.168.1.77";
-        public int port = 501;
+        public string ip;
+        public int port;
         private TcpClient tcpclnt;
+
+        public RTransLink(string ip, int port)
+        {
+            this.ip = ip;
+            this.port = port;
+            
+        }
 
         public void Send(string tosend)
         {
             tcpclnt = new TcpClient();
+            tcpclnt.SendTimeout = 600000;
             tcpclnt.Connect(ip, port);
             var data = Encoding.ASCII.GetBytes(tosend);
             var stream = tcpclnt.GetStream();
