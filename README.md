@@ -9,6 +9,8 @@ PS03, Password stealer, version 3, is a consists of four solutions:
   - ChromeDecrypt
   -  WiPS
   
+
+![ServersideScreenshot](https://github.com/benlarsendk/PS03/blob/master/screenshot.PNG "Screenshot of serverside")
 ### PS03 Server
 Is the receiving end of the project. This would be the attackers machine, or a server. As for now it simply decrypt the incomming information and prints it to the console. This is a stand-alone solution and doesn't need any external libraries. 
 
