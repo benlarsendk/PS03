@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ChromeDecrypt">
-      <HintPath>..\..\ChromeDecrypt\ChromeDecrypt\bin\Debug\ChromeDecrypt.dll</HintPath>
+      <HintPath>..\ChromeDecrypt\bin\Debug\ChromeDecrypt.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,7 +45,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="WiPS">
-      <HintPath>..\..\WiPS\WiPS\bin\Debug\WiPS.dll</HintPath>
+      <HintPath>..\WiPS\bin\Debug\WiPS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

