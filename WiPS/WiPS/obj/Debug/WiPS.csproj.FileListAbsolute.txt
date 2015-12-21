@@ -1,0 +1,5 @@
+c:\users\benla\documents\visual studio 2015\Projects\WiPS\WiPS\bin\Debug\WiPS.dll
+c:\users\benla\documents\visual studio 2015\Projects\WiPS\WiPS\bin\Debug\WiPS.pdb
+c:\users\benla\documents\visual studio 2015\Projects\WiPS\WiPS\obj\Debug\WiPS.csprojResolveAssemblyReference.cache
+c:\users\benla\documents\visual studio 2015\Projects\WiPS\WiPS\obj\Debug\WiPS.dll
+c:\users\benla\documents\visual studio 2015\Projects\WiPS\WiPS\obj\Debug\WiPS.pdb

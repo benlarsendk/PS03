@@ -1,0 +1,9 @@
+D:\Dropbox\IHA\ConsoleApplication1\ConsoleApplication1\obj\Debug\PS03_Server.csprojResolveAssemblyReference.cache
+D:\Dropbox\IHA\ConsoleApplication1\ConsoleApplication1\obj\Debug\PS03.exe
+D:\Dropbox\IHA\ConsoleApplication1\ConsoleApplication1\obj\Debug\PS03.pdb
+D:\Dropbox\IHA\ConsoleApplication1\ConsoleApplication1\bin\Debug\PS03.exe.config
+D:\Dropbox\IHA\ConsoleApplication1\ConsoleApplication1\bin\Debug\PS03.exe
+D:\Dropbox\IHA\ConsoleApplication1\ConsoleApplication1\bin\Debug\PS03.pdb
+D:\Dropbox\IHA\ConsoleApplication1\PS03_Server\bin\Debug\PS03.exe.config
+D:\Dropbox\IHA\ConsoleApplication1\PS03_Server\obj\Debug\PS03.exe
+D:\Dropbox\IHA\ConsoleApplication1\PS03_Server\obj\Debug\PS03.pdb
