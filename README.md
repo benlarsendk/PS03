@@ -44,9 +44,9 @@ At the moment a lot of issues exist, eg. when used on a machine without chrome, 
 
 **CHANGELOG**
 3.0.2
-> Fixed crashes when victim doesn't use chrome or have WLAN
-> Fixed send timeout at victimside to exit quietly instead of crash
-> General cleanup
+- Fixed crashes when victim doesn't use chrome or have WLAN
+- Fixed send timeout at victimside to exit quietly instead of crash
+- General cleanup
 
    [DPAPI]: <http://www.obviex.com/samples/dpapi.aspx>
    [Mark Brittingham]: <http://stackoverflow.com/questions/165808/simple-two-way-encryption-for-c-sharp>
