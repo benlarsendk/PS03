@@ -2,7 +2,7 @@
 
 PS03 is a project which goal is to set more focus on security. Stop saving your passwords in chrome, don't automaticly connect to WiFi's and so on. This project shows how easy an attacker can get all your passwords ever saved, even without any anti-virus complaining. 
 
-PS03, Password Sniffer, version 3, is a consists of four solutions:
+PS03, Password Sniffer, version 3, consists of four solutions:
 
   - PS03 Server
   - PS03 Victim
@@ -12,7 +12,7 @@ PS03, Password Sniffer, version 3, is a consists of four solutions:
 
 ![ServersideScreenshot](https://github.com/benlarsendk/PS03/blob/master/screenshot.PNG "Screenshot of serverside")
 ### PS03 Server
-Is the receiving end of the project. This would be the attackers machine, or a server. As for now it simply decrypt the incomming information and prints it to the console. This is a stand-alone solution and doesn't need any external libraries. 
+This is the receiving end of the project. This would be the attackers machine, or a server. As for now it simply decrypt the incomming information and prints it to the console. This is a stand-alone solution and doesn't need any external libraries. 
 
 ### PS03 Victim
 Is the client-side/victim-side of the project. It uses the two libraries to get saved Wifi-passwords as well as all saved passwords in chrome. This is also the soultion containing the logic for packing, encrypting and sending the data. **Remember to change the IP and port before using. 
@@ -38,7 +38,7 @@ If you inted to use this software, be aware that you need to compile the librari
 ### Development
 
 Want to contribute? Please do so. 
-At the moment a lot of issues exist, eg. when used on a machine without chrome, without WiFi and so on. This will be fixed - either by me or you.
+If you find an issue, please create it as an issue, and if you want you can fix it and make a pullrequest.
 
 ### Version
 3.0.2
