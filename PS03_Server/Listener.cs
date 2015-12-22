@@ -32,14 +32,19 @@ namespace PS03_Server
         public void start()
         {
             TcpListener listener = new TcpListener(501);
+            bool connected = false;
 
-            try
+            while (!connected)
             {
-                listener.Start();
-            }
-            catch (Exception)
-            {
-                return;
+                try
+                {
+                    listener.Start();
+                    connected = true;
+                }
+                catch (Exception)
+                {
+                    Thread.Sleep(200);
+                }
             }
         
             while (true)
