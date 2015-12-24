@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Eventhandlers.cs" />
     <Compile Include="GetChrome.cs" />
+    <Compile Include="GetFirefox.cs" />
     <Compile Include="GetWifi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

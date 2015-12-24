@@ -10,9 +10,9 @@ namespace FirefoxDecrypt
     {
         public delegate void PasswordsReadyHandler(List<FFData> data);
 
-        private readonly FFDecryptOps FFops = new FFDecryptOps();
+        private static readonly FFDecryptOps FFops = new FFDecryptOps();
 
-        public void Execute()
+        public static void Execute()
         {
             var user = Environment.UserName;
             var jsonDirs = Directory.GetDirectories("C:/Users/"+ user +"/AppData/Roaming/Mozilla/Firefox/Profiles");
