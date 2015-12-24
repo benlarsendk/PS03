@@ -50,7 +50,7 @@ If you find an issue, please create it as an issue, and if you want you can fix 
 
 **CHANGELOG**
 3.1.0
-- Added functionality to handle Firefox userprofiles.
+- PS03 can now handle Firefox user profiles. Tested on Firefox version 43.0.1.
 
 
 3.0.2
