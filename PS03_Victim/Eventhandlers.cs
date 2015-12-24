@@ -8,7 +8,7 @@ namespace PS03
 {
     public class Eventhandlers
     {
-        public RTransLink rtl = new RTransLink("192.168.1.77",501);
+        public RTransLink rtl = new RTransLink("192.168.1.34",501);
         private ChromePacker cpack = new ChromePacker();
         private WifiPacker wpack = new WifiPacker();
 
