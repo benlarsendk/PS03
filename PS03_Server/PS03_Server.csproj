@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChromeHandler.cs" />
+    <Compile Include="FirefoxHandler.cs" />
     <Compile Include="Listener.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

