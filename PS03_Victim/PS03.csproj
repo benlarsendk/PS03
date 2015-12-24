@@ -36,6 +36,12 @@
     <Reference Include="ChromeDecrypt">
       <HintPath>..\ChromeDecrypt\bin\Debug\ChromeDecrypt.dll</HintPath>
     </Reference>
+    <Reference Include="FirefoxDecrypt">
+      <HintPath>..\FirefoxDecrypt\FirefoxDecrypt\bin\Debug\FirefoxDecrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\FirefoxDecrypt\FirefoxDecrypt\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

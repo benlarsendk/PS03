@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using FirefoxDecrypt.Models;
 using Newtonsoft.Json;
 
 namespace FirefoxDecrypt
