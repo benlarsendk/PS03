@@ -34,7 +34,7 @@ PS03 uses code from the following authors:
 * [DPAPI] - For decrypting Chrome passwords
 * [Mark Brittingham] - For simple AES encryption of data
 * [SQLite] - For reading the Google Chrome Login Data file
-* [3VL] - For supplying some of the code for decrypting firefox passwords and username.
+* [3V1L] - For supplying some of the code for decrypting firefox passwords and username.
 
 
 ### Note before use
@@ -46,6 +46,7 @@ Want to contribute? Please do so.
 If you find an issue, please create it as an issue, and if you want you can fix it and make a pullrequest.
 
 ### Version
+
 3.1.0
 
 **CHANGELOG**
@@ -61,6 +62,6 @@ If you find an issue, please create it as an issue, and if you want you can fix 
    [DPAPI]: <http://www.obviex.com/samples/dpapi.aspx>
    [Mark Brittingham]: <http://stackoverflow.com/questions/165808/simple-two-way-encryption-for-c-sharp>
    [SQLite]: <https://www.sqlite.org/>
-   [3VL]: <http://xakfor.net/threads/c-firefox-36-password-cookie-recovery.12192/>
+   [3V1L]: <http://xakfor.net/threads/c-firefox-36-password-cookie-recovery.12192/>
    
 
