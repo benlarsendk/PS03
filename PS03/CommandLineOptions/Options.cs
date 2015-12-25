@@ -14,7 +14,7 @@ namespace PS03.CommandLineOptions
             HelpText = "Sets PS03 to receive results.")]
         public bool Receive { get; set; }
 
-        [Option('v', "verbose", DefaultValue = true,
+        [Option('v', "verbose", DefaultValue = false,
             HelpText = "Prints all messages to standard output.")]
         public bool Verbose { get; set; }
 

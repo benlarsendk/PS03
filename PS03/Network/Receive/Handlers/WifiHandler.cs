@@ -8,12 +8,7 @@ namespace PS03.Network.Receive.Handlers
     {
         private bool first = true;
         private readonly Mutex mtx = new Mutex();
-        private readonly PasswordCounter pwc;
-
-        public WifiHandler(PasswordCounter PWC)
-        {
-            pwc = PWC;
-        }
+        private readonly PasswordCounter pwc = PasswordCounter.Instance;
 
         public void Handle(string data)
         {
