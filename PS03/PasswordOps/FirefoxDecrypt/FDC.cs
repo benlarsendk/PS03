@@ -38,7 +38,8 @@ namespace PS03.PasswordOps.FirefoxDecrypt
                     var username = FFops.Decrypt(data.encryptedUsername);
                     var password = FFops.Decrypt(data.encryptedPassword);
                     var host = data.hostname;
-                    firefoxPasswords.Add(new FFData {Host = host, Username = username, Password = password});
+                    if(!password.StartsWith("{\"version\":1,\"accountData"))
+                      firefoxPasswords.Add(new FFData {Host = host, Username = username, Password = password});
                 }
 
                 HandleOutputReady(firefoxPasswords);

