@@ -9,3 +9,6 @@ C:\Users\benla\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\CommandLine.xml
 C:\Users\benla\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\Newtonsoft.Json.dll
 C:\Users\benla\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\Newtonsoft.Json.xml
 C:\Users\benla\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\System.Data.SQLite.xml
+C:\Users\benla\Dropbox\IHA\PS03\PS03\bin\Debug\PS03.exe.config
+C:\Users\benla\Dropbox\IHA\PS03\PS03\obj\Debug\PS03.exe
+C:\Users\benla\Dropbox\IHA\PS03\PS03\obj\Debug\PS03.pdb
