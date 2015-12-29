@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PS03.PasswordOps.WiPS.CmdLineExecutor
 {
@@ -16,10 +17,10 @@ namespace PS03.PasswordOps.WiPS.CmdLineExecutor
 
         public void ExecuteCommands()
         {
-            foreach (ICommand cmd in _cmds)
-            {
-                cmd.Execute();
-            }
+            Parallel.For(0, _cmds.Count, i =>
+             {
+                 _cmds[i].Execute();
+             });
         }
 
     };

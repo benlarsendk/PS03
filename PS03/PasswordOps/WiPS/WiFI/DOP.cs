@@ -30,6 +30,7 @@ namespace PS03.PasswordOps.WiPS.WiFI
         {
             if (data.StartsWith("The Wireless AutoConfig Service"))
                 return;
+
             var rawprofiles = GetRawProfileLines(GetLines(data));
             foreach (var rawpro in rawprofiles)
             {
