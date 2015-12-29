@@ -29,8 +29,9 @@ namespace PS03.Network.Receive.Handlers
             var Password = data.Substring(pasMark + ("PASS=").Length, data.Length - (pasMark + ("PASS=").Length));
             pwc.AddPassword(Password);
             pwc.AddUsername(User);
-            pwc.AddLogin(new KeyValuePair<string, string>(User, Password));
-            if(Printing)
+            pwc.AddLogin(new KeyValuePair<string, KeyValuePair<string, string>>(Action,
+                new KeyValuePair<string, string>(User, Password)));
+            if (Printing)
                 Print(Action, User, Password);
         }
 

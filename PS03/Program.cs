@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using PS03.CommandLineOptions;
@@ -12,6 +13,8 @@ namespace PS03
     {
         private static void Main(string[] args)
         {
+            var stop = new Stopwatch();
+            stop.Start();
             var options = new Options();
             options.HandleArgs(args);
 
@@ -72,6 +75,8 @@ namespace PS03
                 var RepGen = DataCounter.Instance.ReportGenerator;
                 RepGen.HTML();
                 Console.WriteLine("Success!");
+                stop.Stop();
+                Console.WriteLine("Elapsed: " + stop.Elapsed);
             }
             if (options.Receive)
             {

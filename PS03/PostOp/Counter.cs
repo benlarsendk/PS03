@@ -39,7 +39,7 @@ namespace PS03.PostOp
             mtx.ReleaseMutex();
         }
 
-        public void AddLogin(KeyValuePair<string, string> login)
+        public void AddLogin(KeyValuePair<string, KeyValuePair<string, string>> login)
         {
             loginMtx.WaitOne();
             ReportGenerator.allGathered.Add(login);

@@ -6,7 +6,7 @@ namespace PS03.PostOp
 {
     public class ReportGenerator
     {
-        public List<KeyValuePair<string, string>> allGathered = new List<KeyValuePair<string, string>>();
+        public List<KeyValuePair<string, KeyValuePair<string, string>>> allGathered = new List<KeyValuePair<string, KeyValuePair<string, string>>>();
         public List<KeyValuePair<string, int>> pwList = new List<KeyValuePair<string, int>>();
         public List<KeyValuePair<string, int>> usrList = new List<KeyValuePair<string, int>>();
 
@@ -50,8 +50,8 @@ namespace PS03.PostOp
             foreach (var log in allGathered)
             {
                 var tableend = doc.IndexOf("</tbody><!--ALL-->");
-                var table = @"<tr><td>" + log.Key + @"</td><td>" + log.Value +
-                            @"</td></tr>";
+                var table = @"<tr><td>" + log.Value.Key + @"</td><td>" + log.Value.Value +
+                          @"</td><td><a href=" + "\"" + log.Key + "\"" + @">"+log.Key+ "</a></td></tr>";
                 doc = doc.Insert(tableend, (table));
                 usrcnt++;
             }
