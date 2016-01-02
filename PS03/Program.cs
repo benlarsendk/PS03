@@ -24,11 +24,6 @@ namespace PS03
 
             _options.HandleArgs(args);
             _presenter.ShowWelcome();
-            _options.Verbose = true;
-            _options.Receive = true;
-            _options.Log = true;
-
-            _options.Port = 501;
 
 
             if(!_options.Receive)
