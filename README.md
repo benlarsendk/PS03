@@ -25,6 +25,16 @@ If wanted, the program can function without any network communication. To config
 $ PS03.exe -v
 ```
 The -v (verbose) command can also be used alongside networking to generate report and show output on victimside.
+
+To generate a reportfile, that specifies the most used passwords and more, use:
+```sh
+$ PS03.exe -l
+```
+
+Example for viewing output and saving it to a logfile while at the same time transmitting:
+```sh
+$ PS03.exe -v -l -t -p 501 -i 192.168.1.12
+```
 ### Credits
 
 PS03 uses code and inspiration from the following authors:
@@ -43,7 +53,7 @@ If you find an issue, please create it as an issue, and if you want you can fix 
 
 ### Version
 
-3.2.0
+3.2.1
 
 **CHANGELOG**
 3.2.1
