@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PS03.HandleData
@@ -11,6 +12,7 @@ namespace PS03.HandleData
         CommandLineOptions.Options _options;
         List<Profile> _allProfiles = new List<Profile>();
         IPacker packer = new PasswordPacker();
+        Mutex mtx = new Mutex();
 
         public DataHandler(CommandLineOptions.Options options)
         {
@@ -30,6 +32,7 @@ namespace PS03.HandleData
 
         public void HandleReceivedData(object sender, string s)
         {
+            mtx.WaitOne();
             Profile cleanprofile = new Profile();
             try
             {
@@ -44,8 +47,7 @@ namespace PS03.HandleData
                 Console.WriteLine("Error in decrypting data..");
             }
 
-            
-            
+            mtx.ReleaseMutex();
         }
 
         public void HandleVictimConected(object sender, string s)
@@ -58,6 +60,13 @@ namespace PS03.HandleData
         {
             if(_options.Verbose)
                 printer.Print(formatter.Format(data));
+            if(_options.Log)
+            {
+                printer = new FilePrinter();
+                formatter = new ReportFormatter();
+
+                printer.Print(formatter.Format(data));
+            }
         }
     }
 }

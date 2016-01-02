@@ -19,16 +19,17 @@ namespace PS03
 
         public override string Format(List<Profile> Profiles)
         {
-            var counter = new PasswordCounter(Profiles);
+            var counter = PasswordCounter.Instance;
+            counter.AddProfiles(Profiles);
 
             List<KeyValuePair<string, int>> pwList = counter.CountPasswords();
             List<KeyValuePair<string, int>> usrList = counter.CountUsers();
-
+            var allprofiles = counter.GetAll();
 
             var doc = File.ReadAllText("reportTemplate.html");
             var alls = doc.IndexOf("[ALL]");
             doc = doc.Remove(alls, 5);
-            doc = doc.Insert(alls, Profiles.Count.ToString());
+            doc = doc.Insert(alls, allprofiles.Count.ToString());
 
             var pwind = doc.IndexOf("[PW]");
             doc = doc.Remove(pwind, 4);
@@ -44,7 +45,7 @@ namespace PS03
                 if (pw.Key != "EMPTY")
                 {
                     var tableend = doc.IndexOf("</tbody><!--PASSWORDS-->");
-                    var table = @"<tr><td>" + pw.Key + @"</td><td>" + String.Format("{0:P2}.", (double)pw.Value / (double)Profiles.Count)  + @"</td></tr>";
+                    var table = @"<tr><td>" + pw.Key + @"</td><td>" + String.Format("{0:P2}.", (double)pw.Value / (double)allprofiles.Count)  + @"</td></tr>";
                     doc = doc.Insert(tableend, (table));
                     pwcnt++;
                 }
@@ -57,7 +58,7 @@ namespace PS03
                 if (usr.Key != "EMPTY")
                 {
                     var tableend = doc.IndexOf("</tbody><!--USERNAMES-->");
-                    var table = @"<tr><td>" + usr.Key + @"</td><td>" + String.Format("{0:P2}.", (double)usr.Value / (double)Profiles.Count) +
+                    var table = @"<tr><td>" + usr.Key + @"</td><td>" + String.Format("{0:P2}.", (double)usr.Value / (double)allprofiles.Count) +
                                 @"</td></tr>";
                     doc = doc.Insert(tableend, (table));
                     usrcnt++;

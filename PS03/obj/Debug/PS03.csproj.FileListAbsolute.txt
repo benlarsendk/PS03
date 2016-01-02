@@ -33,3 +33,14 @@ C:\Users\benla\Dropbox\IHA\XX\PS03\PS03\bin\Debug\CommandLine.xml
 C:\Users\benla\Dropbox\IHA\XX\PS03\PS03\bin\Debug\Newtonsoft.Json.xml
 C:\Users\benla\Dropbox\IHA\XX\PS03\PS03\bin\Debug\System.Data.SQLite.xml
 C:\Users\benla\Dropbox\IHA\XX\PS03\PS03\obj\Debug\PS03.csprojResolveAssemblyReference.cache
+D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\PS03.exe.config
+D:\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.exe
+D:\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.pdb
+D:\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.csprojResolveAssemblyReference.cache
+D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\PS03.exe
+D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\PS03.pdb
+D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\CommandLine.dll
+D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\Newtonsoft.Json.dll
+D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\CommandLine.xml
+D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\Newtonsoft.Json.xml
+D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\System.Data.SQLite.xml

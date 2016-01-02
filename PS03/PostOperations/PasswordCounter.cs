@@ -10,12 +10,33 @@ namespace PS03.PostOperations
     {
 
         private List<Profile> plist = new List<Profile>();
+        private static PasswordCounter _instance;
 
-        public PasswordCounter(List<Profile> profiles)
+
+        public void AddProfiles(List<Profile> profiles)
         {
-            plist = profiles;
+            foreach(var p in profiles)
+            {
+                plist.Add(p);
+            }
         }
 
+        public List<Profile> GetAll()
+        {
+            return plist;
+        }
+
+        public static PasswordCounter Instance
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    _instance = new PasswordCounter();
+                }
+                return _instance;
+            }
+        }
         public List<KeyValuePair<string, int>> CountPasswords()
         {
             var pwDict = new Dictionary<string, int>();
