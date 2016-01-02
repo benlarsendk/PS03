@@ -28,8 +28,6 @@ namespace PS03
 
             var doc = File.ReadAllText("reportTemplate.html");
             var alls = doc.IndexOf("[ALL]");
-            doc = doc.Remove(alls, 5);
-            doc = doc.Insert(alls, allprofiles.Count.ToString());
 
             var pwind = doc.IndexOf("[PW]");
             doc = doc.Remove(pwind, 4);

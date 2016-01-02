@@ -24,6 +24,8 @@ namespace PS03
 
             _options.HandleArgs(args);
             _presenter.ShowWelcome();
+            _options.Verbose = true;
+            _options.Log = true;
 
 
             if(!_options.Receive)
