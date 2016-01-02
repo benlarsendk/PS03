@@ -46,8 +46,15 @@ If you find an issue, please create it as an issue, and if you want you can fix 
 3.2.0
 
 **CHANGELOG**
+3.2.1
+- Major boost on performance - now executes in about a second (CPU-depended of course.)
+- Fixed usagepercentage
+
+
 3.2.0
 - Merged all solutions in to a single solution and added commandline parameters
+- Tweaks on performance
+
 
 3.1.0
 - PS03 can now handle Firefox user profiles. Tested on Firefox version 43.0.1.

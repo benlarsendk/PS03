@@ -10,6 +10,10 @@ namespace PS03.CommandLineOptions
             HelpText = "Sets PS03 to transmit results.")]
         public bool Transmit { get; set; }
 
+        [Option('l', "log", DefaultValue = false,
+            HelpText = "Creates a report file.")]
+        public bool Log { get; set; }
+
         [Option('r', "receive", DefaultValue = false,
             HelpText = "Sets PS03 to receive results.")]
         public bool Receive { get; set; }
