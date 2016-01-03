@@ -14,7 +14,7 @@ namespace PS03
 
         public List<Profile> ExectueModule()
         {
-            return _module.Execute(this); // smider det en ref til base ller den anden?
+            return _module.Execute(this); 
         }
 
     }

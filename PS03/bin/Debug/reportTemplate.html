@@ -1,59 +1,142 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+	td {
+		vertical-align: top;
+	}
+</style>
+</head>
+<body>
 <center>
-<h1>PS03 Password Sniffer report</h1>
+<h1 style="text-align: center;">PS03 Password Sniffer report</h1>
 </center>
 
 <center>
-<p>PS03 found <strong>[USR]</strong> different usernames and <strong>[PW]</strong> different passwords.</p>
-</center>
+<p style="text-align: center;">PS03 found <strong>[USR]</strong> different usernames and <strong>[PW]</strong> different passwords.<br />
+<a href="http://github.com/benlarsendk/PS03">http://github.com/benlarsendk/PS03</a><br />
+<br />
+&nbsp;</p>
 
-<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
-	<caption>
-	<p>&nbsp;</p>
-
-	<table border="0" cellpadding="1" cellspacing="1" style="width: 500px;">
-		<tbody>
-			<tr>
-				<td>
-				<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
-					<caption><strong>Most common usernames</strong></caption>
-					<tbody>
-						<tr>
-							<td><strong>Username</strong></td>
-							<td><strong>Usage (%)</strong></td>
-						</tr>
-					</tbody><!--USERNAMES-->
-				</table>
-
-				<p>&nbsp;</p>
-				</td>
-				<td>
-				<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
-					<caption><strong>Most common passwords</strong></caption>
-					<tbody>
-						<tr>
-							<td><strong>Password</strong></td>
-							<td><strong>Usage (%)</strong></td>
-						</tr>
-					</tbody><!--PASSWORDS-->
-				</table>
-
-				<p>&nbsp;</p>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	</caption>
-</table>
-
-<table align="center" border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
-	<caption><strong>All gathered logins</strong></caption>
+<table border="1" cellpadding="1" cellspacing="1" height="101" width="423">
 	<tbody>
 		<tr>
-			<td><strong>Username</strong></td>
-			<td><strong>Password</strong></td>
-			<td><strong>Host</strong></td>
+			<td style="text-align: center;"><strong>Target</strong></td>
+			<td style="text-align: center;"><strong>Usernames</strong></td>
+			<td style="text-align: center;"><strong>Passwords</strong></td>
 		</tr>
-		</tbody><!--ALL-->	
+		<tr>
+			<td style="text-align: center;">Firefox</td>
+			<td style="text-align: center;">[FPW]</td>
+			<td style="text-align: center;">[FPA]</td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">Chrome</td>
+			<td style="text-align: center;">[CPW]</td>
+			<td style="text-align: center;">[CPA]</td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">WiFi</td>
+			<td style="text-align: center;">-</td>
+			<td style="text-align: center;">[WPA]</td>
+		</tr>
+	</tbody>
+</table>
+</center>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<table align="center" border="0" cellpadding="3" cellspacing="3" style="width: 500px;">
+	<tbody>
+		<tr>
+			<td>
+			<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+				<caption><strong>Most common usernames</strong></caption>
+				<tbody>
+					<tr>
+						<td><strong>Username</strong></td>
+						<td><strong>Usage (%)</strong></td>
+					</tr>
+
+				</tbody><!--USERNAMES-->
+			</table>
+
+			<p>&nbsp;</p>
+			</td>
+			<td>
+			<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+				<caption><strong>Most common passwords</strong></caption>
+				<tbody>
+					<tr>
+						<td><strong>Password</strong></td>
+						<td><strong>Usage (%)</strong></td>
+					</tr>
+	
+				</tbody><!--PASSWORDS-->
+			</table>
+
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+	</tbody>
 </table>
 
 <p>&nbsp;</p>
+
+<table align="center" border="0" cellpadding="3" cellspacing="3" style="width: 500px;">
+	<tbody>
+		<tr>
+			<td>
+			<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+				<caption><strong>Firefox</strong></caption>
+				<tbody>
+					<tr>
+						<td><strong>Username</strong></td>
+						<td><strong>Password</strong></td>
+						<td><strong>Action URL</strong></td>
+					</tr>
+
+				</tbody><!--Firefox-->
+			</table>
+
+			<p>&nbsp;</p>
+			</td>
+			<td>
+			<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+				<caption><strong>Chrome</strong></caption>
+				<tbody>
+					<tr>
+						<td><strong>Username</strong></td>
+						<td><strong>Password</strong></td>
+						<td><strong>Action URL</strong></td>
+					</tr>
+
+				</tbody><!--Google Chrome-->
+			</table>
+
+			<p>&nbsp;</p>
+			</td>
+			<td>
+			<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+				<caption><strong>WiFi</strong></caption>
+				<tbody>
+					<tr>
+						<td><strong>SSID</strong></td>
+						<td><strong>Encryption</strong></td>
+						<td><strong>Password</strong></td>
+					</tr>
+
+				</tbody><!--WiFi-->
+			</table>
+
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

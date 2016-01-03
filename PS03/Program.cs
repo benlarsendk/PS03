@@ -1,4 +1,4 @@
-﻿using PS03.CommandLineOptions;
+﻿ using PS03.CommandLineOptions;
 using PS03.PostOperations;
 using System;
 using System.Collections.Concurrent;
@@ -24,7 +24,7 @@ namespace PS03
 
             _options.HandleArgs(args);
             _presenter.ShowWelcome();
-            _options.Verbose = true;
+       //     _options.Verbose = true;
             _options.Log = true;
 
 

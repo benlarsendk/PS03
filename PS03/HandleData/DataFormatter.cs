@@ -24,7 +24,10 @@ namespace PS03
 
             List<KeyValuePair<string, int>> pwList = counter.CountPasswords();
             List<KeyValuePair<string, int>> usrList = counter.CountUsers();
-            var allprofiles = counter.GetAll();
+
+
+            var allprofilesWithDubs = counter.GetAll();
+            var allprofiles = allprofilesWithDubs.Distinct().ToList();
 
             var doc = File.ReadAllText("reportTemplate.html");
             var alls = doc.IndexOf("[ALL]");
@@ -36,6 +39,8 @@ namespace PS03
             var usrind = doc.IndexOf("[USR]");
             doc = doc.Remove(usrind, 5);
             doc = doc.Insert(usrind, usrList.Count.ToString());
+
+            doc = SetStatistics(allprofiles, doc);
             var pwcnt = 0;
             foreach (var pw in pwList)
             {
@@ -65,15 +70,95 @@ namespace PS03
 
             foreach (var log in Profiles)
             {
-                var tableend = doc.IndexOf("</tbody><!--ALL-->");
+                var tableend = doc.IndexOf("</tbody><!--" + log.AppName + "-->");
                 var table = @"<tr><td>" + log.Specification + @"</td><td>" + log.Password +
-                          @"</td><td><a href=" + "\"" + log.Password + "\"" + @">" + log.Action + "</a></td></tr>";
+                          @"</td><td><a href=" + "\"" + log.Action + "\"" + @">" + GetHost(log.Action) + "</a></td></tr>";
                 doc = doc.Insert(tableend, (table));
                 usrcnt++;
             }
             return doc;
         }
 
+        private string GetHost(string link)
+        {
+            if (string.IsNullOrWhiteSpace(link)) return link;
+            Uri myUri = new Uri(link);
+            return myUri.Host;
+        }
+
+        private Dictionary<string,Statistic> GetNumbers(List<Profile> profiles)
+        {
+            Statistic Chrome = new Statistic() { AppName = "Chrome", pw = 0, usr = 0 };
+            Statistic Firefox = new Statistic() { AppName = "Firefox", pw = 0, usr = 0 };
+            Statistic WiFi = new Statistic() { AppName = "WiFi", pw = 0, usr = 0 };
+
+            foreach (var p in profiles)
+            {
+                if (p.AppName == "Google Chrome")
+                {
+                    if (p.Password != "EMPTY" || string.IsNullOrEmpty(p.Password))
+                        Chrome.pw++;
+                    if (p.Specification != "EMPTY" || string.IsNullOrEmpty(p.Specification))
+                        Chrome.usr++;
+                }
+                else if (p.AppName == "Firefox")
+                {
+                    if (p.Password != "EMPTY" || string.IsNullOrEmpty(p.Password))
+                        Firefox.pw++;
+                    if (p.Specification != "EMPTY" || string.IsNullOrEmpty(p.Specification))
+                        Firefox.usr++;
+                }
+                else if (p.AppName == "WiFi")
+                {
+                    if (p.Password != "EMPTY" || string.IsNullOrEmpty(p.Password))
+                        Firefox.pw++;
+                }
+
+
+                }
+
+            var ret =  new Dictionary<string, Statistic>();
+            ret.Add("Firefox", Firefox);
+            ret.Add("Chrome", Chrome);
+            ret.Add("WiFi", WiFi);
+            return ret;
+        }
+
+        private string SetStatistics(List<Profile> profiles, string doc)
+        {
+            var stats = GetNumbers(profiles);
+
+            var fpw = doc.IndexOf("[FPW]");
+            doc = doc.Remove(fpw, 5);
+            doc = doc.Insert(fpw, stats["Firefox"].usr.ToString());
+
+            var fpa = doc.IndexOf("[FPA]");
+            doc = doc.Remove(fpa, 5);
+            doc = doc.Insert(fpa, stats["Firefox"].pw.ToString());
+
+            var cpw = doc.IndexOf("[CPW]");
+            doc = doc.Remove(cpw, 5);
+            doc = doc.Insert(cpw, stats["Chrome"].usr.ToString());
+
+            var cpa = doc.IndexOf("[CPA]");
+            doc = doc.Remove(cpa, 5);
+            doc = doc.Insert(cpa, stats["Chrome"].pw.ToString());
+
+            var wpa = doc.IndexOf("[WPA]");
+            doc = doc.Remove(wpa, 5);
+            doc = doc.Insert(wpa, stats["WiFi"].pw.ToString());
+
+            return doc;
+        }
+
+
+    }
+
+    internal class Statistic
+    {
+        public string AppName;
+        public int pw = 0;
+        public int usr = 0;
     }
 
     public class ConsoleFormatter : DataFormatter
