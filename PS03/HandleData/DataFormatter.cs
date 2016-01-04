@@ -60,7 +60,7 @@ namespace PS03
                 if (pw.Key != "EMPTY")
                 {
                     var tableend = doc.IndexOf("<!--PASSWORDS-->");
-                    var table = @"<tr><td>" + pw.Key + @"</td><td>" + String.Format("{0:P2}.", (double)pw.Value / (double)allprofiles.Count)  + @"</td></tr>";
+                    var table = @"<tr><td>" + pw.Key + @"</td><td>" + String.Format("{0:P2}.", (double)pw.Value / (double)allprofilesWithDubs.Count)  + @"</td></tr>";
                     doc = doc.Insert(tableend, (table));
                     pwcnt++;
                 }
@@ -73,7 +73,7 @@ namespace PS03
                 if (usr.Key != "EMPTY")
                 {
                     var tableend = doc.IndexOf("<!--USERNAMES-->");
-                    var table = @"<tr><td>" + usr.Key + @"</td><td>" + String.Format("{0:P2}.", (double)usr.Value / (double)allprofiles.Count) +
+                    var table = @"<tr><td>" + usr.Key + @"</td><td>" + String.Format("{0:P2}.", (double)usr.Value / (double)allprofilesWithDubs.Count) +
                                 @"</td></tr>";
                     doc = doc.Insert(tableend, (table));
                     usrcnt++;
