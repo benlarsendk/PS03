@@ -46,3 +46,7 @@ D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\Newtonsoft.Json.xml
 D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\System.Data.SQLite.xml
 D:\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.Properties.Resources.resources
 D:\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.csproj.GenerateResource.Cache
+C:\Users\benla\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\PS03.exe.config
+C:\Users\benla\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.exe
+C:\Users\benla\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.pdb
+C:\Users\benla\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.csprojResolveAssemblyReference.cache

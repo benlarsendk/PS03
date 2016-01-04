@@ -116,6 +116,7 @@ namespace PS03
         public List<Profile> Execute(ITarget target)
         {
             var getter = new Getter();
+            
             var ProfileList = getter.GetWIfiProfiles();
             return ProfileList;
         }

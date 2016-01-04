@@ -1,6 +1,7 @@
 ﻿using PS03.PostOperations;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.IO;
 using System.Reflection;
 using System.Linq;
@@ -83,18 +84,23 @@ namespace PS03
             {
                 var tableend = doc.IndexOf("<!--" + log.AppName + "-->");
                 var table = @"<tr><td>" + log.Specification + @"</td><td>" + log.Password +
-                          @"</td><td><a href=" + "\"" + log.Action + "\"" + @">" + GetHost(log.Action) + "</a></td></tr>";
+                          @"</td><td><a href=" + "\"" + log.Action + "\"" + @">" + GetHost(log) + "</a></td></tr>";
                 doc = doc.Insert(tableend, (table));
                 usrcnt++;
             }
             return doc;
         }
 
-        private string GetHost(string link)
+        private string GetHost(Profile link)
         {
-            if (string.IsNullOrWhiteSpace(link)) return link;
-            Uri myUri = new Uri(link);
-            return myUri.Host;
+            if (link.AppName != "WiFi")
+            {
+                if (string.IsNullOrWhiteSpace(link.Action)) return link.Action;
+                Uri myUri = new Uri(link.Action);
+                return myUri.Host;
+            }
+            return link.Action;
+
         }
 
         private Dictionary<string,Statistic> GetNumbers(List<Profile> profiles)

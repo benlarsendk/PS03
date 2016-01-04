@@ -33,6 +33,10 @@ namespace PS03.Target.WiFi.CmdLineExecutor.LocalOps
             var rawPasswordProfiles = PwCmd.Execute();
             var Cp = _dataOps.GetClearProfiles(rawPasswordProfiles, profiles);
 
+            foreach (var p in profiles)
+            {
+                p.AppName = "WiFi";
+            }
             return Cp;
 
         } 
