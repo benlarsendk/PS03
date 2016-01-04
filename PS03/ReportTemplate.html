@@ -9,13 +9,13 @@
           crossorigin="anonymous">
     <title></title>
     <style>
-        td {
+        th {
             text-align: center;
         }
 
-        table {
-            table-layout: fixed;
-            word-wrap: break-word;
+        td {
+            text-align: center;
+            word-break: break-all;
         }
     </style>
 </head>
@@ -62,57 +62,59 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <table class="table table-bordered table-striped table-condensed">
                     <caption><strong>Most common usernames</strong></caption>
                     <tr>
-                        <td><strong>Username</strong></td>
-                        <td><strong>Usage (%)</strong></td>
+                        <th>Username</th>
+                        <th>Usage (%)</th>
                     </tr>
                     <!--USERNAMES-->
                 </table>
             </div>
-            <div class="col-md-5 col-md-offset-2">
+            <div class="col-md-6">
                 <table class="table table-bordered table-striped table-condensed">
                     <caption><strong>Most common passwords</strong></caption>
                     <tr>
-                        <td><strong>Password</strong></td>
-                        <td><strong>Usage (%)</strong></td>
+                        <th>Password</th>
+                        <th>Usage (%)</th>
                     </tr>
                     <!--PASSWORDS-->
                 </table>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <table class="table table-bordered table-striped table-condensed">
                     <caption><strong>Firefox</strong></caption>
                     <tr>
-                        <td><strong>Username</strong></td>
-                        <td><strong>Password</strong></td>
-                        <td><strong>Action URL</strong></td>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Action URL</th>
                     </tr>
                     <!--Firefox-->
                 </table>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <table class="table table-bordered table-striped table-condensed">
                     <caption><strong>Chrome</strong></caption>
                     <tr>
-                        <td><strong>Username</strong></td>
-                        <td><strong>Password</strong></td>
-                        <td><strong>Action URL</strong></td>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Action URL</th>
                     </tr>
                     <!--Google Chrome-->
                 </table>
             </div>
-            <div class="col-md-4">
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
                 <table class="table table-bordered table-striped table-condensed">
                     <caption><strong>WiFi</strong></caption>
                     <tr>
-                        <td><strong>SSID</strong></td>
-                        <td><strong>Encryption</strong></td>
-                        <td><strong>Password</strong></td>
+                        <th>SSID</th>
+                        <th>Encryption</th>
+                        <th>Password</th>
                     </tr>
                     <!--WiFi-->
                 </table>
