@@ -12,17 +12,13 @@ namespace PS03
 {
     public abstract class DataFormatter
     {
-
         public abstract string Format(List<Profile> Profiles);
     }
 
     public class ReportFormatter : DataFormatter
     {
-
         public override string Format(List<Profile> Profiles)
         {
-
-
             var counter = PasswordCounter.Instance;
             counter.AddProfiles(Profiles);
 
@@ -178,8 +174,6 @@ namespace PS03
 
     public class ConsoleFormatter : DataFormatter
     {
-
-
         public override string Format(List<Profile> Profiles)
         {
             foreach (var p in Profiles)
@@ -191,7 +185,6 @@ namespace PS03
 
         private void PrintColor(string action, string user, string pass, string app)
         {
-
             Console.WriteLine();
             printCenterWhite("# ---------------------- " + app + " Profile ---------------------- #");
 
@@ -207,7 +200,6 @@ namespace PS03
             Console.WriteLine();
 
             Console.ResetColor();
-
         }
 
         private void printRed(string data)
