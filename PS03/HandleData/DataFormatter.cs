@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +20,27 @@ namespace PS03
 
         public override string Format(List<Profile> Profiles)
         {
+
+
             var counter = PasswordCounter.Instance;
             counter.AddProfiles(Profiles);
 
             List<KeyValuePair<string, int>> pwList = counter.CountPasswords();
             List<KeyValuePair<string, int>> usrList = counter.CountUsers();
 
-
+            string doc;
             var allprofilesWithDubs = counter.GetAll();
             var allprofiles = allprofilesWithDubs.Distinct().ToList();
 
-            var doc = File.ReadAllText("reportTemplate.html");
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "PS03.ReportTemplate.html";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                doc = reader.ReadToEnd();
+            }
+
             var alls = doc.IndexOf("[ALL]");
 
             var pwind = doc.IndexOf("[PW]");

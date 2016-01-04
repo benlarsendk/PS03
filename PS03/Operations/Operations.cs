@@ -23,7 +23,6 @@ namespace PS03.Operations
             var bag = new ConcurrentBag<Profile>();
             var datahandler = new HandleData.DataHandler(options);
 
-            
             Parallel.ForEach(_targets, (tg) =>
             {
                 Parallel.ForEach(tg.ExectueModule(), (n) =>

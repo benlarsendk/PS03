@@ -44,3 +44,5 @@ D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\Newtonsoft.Json.dll
 D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\CommandLine.xml
 D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\Newtonsoft.Json.xml
 D:\Dropbox\IHA\PS03\PS03\PS03\bin\Debug\System.Data.SQLite.xml
+D:\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.Properties.Resources.resources
+D:\Dropbox\IHA\PS03\PS03\PS03\obj\Debug\PS03.csproj.GenerateResource.Cache
