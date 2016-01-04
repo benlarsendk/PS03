@@ -52,6 +52,7 @@ namespace PS03
 
         public override bool CheckFile()
         {
+            if (!Directory.Exists(localPath)) return false;
             var jsonDirs = Directory.GetDirectories(localPath);
             foreach (var Profile in jsonDirs)
             {
