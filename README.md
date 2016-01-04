@@ -59,6 +59,7 @@ If you find an issue, please create it as an issue, and if you want you can fix 
 3.2.1
 - Major boost on performance - now executes in about a second (CPU-depended of course.)
 - Fixed usagepercentage
+- Report redesign
 
 
 3.2.0
