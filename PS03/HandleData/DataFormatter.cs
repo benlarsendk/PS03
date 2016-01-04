@@ -60,7 +60,7 @@ namespace PS03
                 if (pw.Key != "EMPTY")
                 {
                     var tableend = doc.IndexOf("<!--PASSWORDS-->");
-                    var table = @"<tr><td>" + pw.Key + @"</td><td>" + String.Format("{0:P2}.", (double)pw.Value / (double)allprofilesWithDubs.Count)  + @"</td></tr>";
+                    var table = @"<tr><td>" + pw.Key + @"</td><td>" + String.Format("{0:P2}.", (double)pw.Value / (double)allprofilesWithDubs.Count) + @"</td></tr>";
                     doc = doc.Insert(tableend, (table));
                     pwcnt++;
                 }
@@ -103,7 +103,7 @@ namespace PS03
 
         }
 
-        private Dictionary<string,Statistic> GetNumbers(List<Profile> profiles)
+        private Dictionary<string, Statistic> GetNumbers(List<Profile> profiles)
         {
             Statistic Chrome = new Statistic() { AppName = "Chrome", pw = 0, usr = 0 };
             Statistic Firefox = new Statistic() { AppName = "Firefox", pw = 0, usr = 0 };
@@ -128,13 +128,11 @@ namespace PS03
                 else if (p.AppName == "WiFi")
                 {
                     if (p.Password != "EMPTY" || string.IsNullOrEmpty(p.Password))
-                        Firefox.pw++;
+                        WiFi.pw++;
                 }
+            }
 
-
-                }
-
-            var ret =  new Dictionary<string, Statistic>();
+            var ret = new Dictionary<string, Statistic>();
             ret.Add("Firefox", Firefox);
             ret.Add("Chrome", Chrome);
             ret.Add("WiFi", WiFi);
@@ -184,18 +182,18 @@ namespace PS03
 
         public override string Format(List<Profile> Profiles)
         {
-            foreach(var p in Profiles)
+            foreach (var p in Profiles)
             {
                 PrintColor(p.Action, p.Specification, p.Password, p.AppName);
             }
             return "";
         }
 
-        private void PrintColor(string action, string user, string pass,string app)
+        private void PrintColor(string action, string user, string pass, string app)
         {
-  
+
             Console.WriteLine();
-            printCenterWhite("# ---------------------- "+ app + " Profile ---------------------- #");
+            printCenterWhite("# ---------------------- " + app + " Profile ---------------------- #");
 
 
             Console.WriteLine();
