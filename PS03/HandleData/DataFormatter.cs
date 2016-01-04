@@ -58,7 +58,7 @@ namespace PS03
                 if (pwcnt == 10) break;
                 if (pw.Key != "EMPTY")
                 {
-                    var tableend = doc.IndexOf("</tbody><!--PASSWORDS-->");
+                    var tableend = doc.IndexOf("<!--PASSWORDS-->");
                     var table = @"<tr><td>" + pw.Key + @"</td><td>" + String.Format("{0:P2}.", (double)pw.Value / (double)allprofiles.Count)  + @"</td></tr>";
                     doc = doc.Insert(tableend, (table));
                     pwcnt++;
@@ -71,7 +71,7 @@ namespace PS03
                 if (usrcnt == 10) break;
                 if (usr.Key != "EMPTY")
                 {
-                    var tableend = doc.IndexOf("</tbody><!--USERNAMES-->");
+                    var tableend = doc.IndexOf("<!--USERNAMES-->");
                     var table = @"<tr><td>" + usr.Key + @"</td><td>" + String.Format("{0:P2}.", (double)usr.Value / (double)allprofiles.Count) +
                                 @"</td></tr>";
                     doc = doc.Insert(tableend, (table));
@@ -81,7 +81,7 @@ namespace PS03
 
             foreach (var log in Profiles)
             {
-                var tableend = doc.IndexOf("</tbody><!--" + log.AppName + "-->");
+                var tableend = doc.IndexOf("<!--" + log.AppName + "-->");
                 var table = @"<tr><td>" + log.Specification + @"</td><td>" + log.Password +
                           @"</td><td><a href=" + "\"" + log.Action + "\"" + @">" + GetHost(log.Action) + "</a></td></tr>";
                 doc = doc.Insert(tableend, (table));
