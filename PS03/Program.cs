@@ -1,9 +1,10 @@
-﻿ using PS03.CommandLineOptions;
+﻿using PS03.CommandLineOptions;
 using PS03.PostOperations;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace PS03
             _options.HandleArgs(args);
             _presenter.ShowWelcome();
        //     _options.Verbose = true;
-       //     _options.Log = true;
+            _options.Log = true;
 
 
             if(!_options.Receive)
@@ -82,6 +83,8 @@ namespace PS03
             sw.Stop();
             if (_options.Verbose)
                 Console.WriteLine("Time: " + sw.Elapsed);
+            if(File.Exists("Report_PS03.html"))
+                System.Diagnostics.Process.Start("Report_PS03.html");
         }
     }
 }
