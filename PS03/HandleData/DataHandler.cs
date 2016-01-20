@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PS03.PostOperations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace PS03.HandleData
         List<Profile> _allProfiles = new List<Profile>();
         IPacker packer = new PasswordPacker();
         Mutex mtx = new Mutex();
+        WordlistGenerator wg = new WordlistGenerator();
 
         public DataHandler(CommandLineOptions.Options options)
         {
@@ -66,7 +68,9 @@ namespace PS03.HandleData
                 formatter = new ReportFormatter();
 
                 printer.Print(formatter.Format(data));
+                wg.Generate(data);
             }
+
         }
     }
 }

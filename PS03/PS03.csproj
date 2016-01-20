@@ -80,6 +80,7 @@
     <Compile Include="HandleData\DataFormatter.cs" />
     <Compile Include="HandleData\DataHandler.cs" />
     <Compile Include="PostOperations\PasswordCounter.cs" />
+    <Compile Include="PostOperations\WordlistGenerator.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

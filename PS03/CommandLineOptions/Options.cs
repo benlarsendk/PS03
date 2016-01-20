@@ -11,7 +11,7 @@ namespace PS03.CommandLineOptions
         public bool Transmit { get; set; }
 
         [Option('l', "log", DefaultValue = false,
-            HelpText = "Creates a report file.")]
+            HelpText = "Creates a report and wordlist for username and passwords.")]
         public bool Log { get; set; }
 
         [Option('r', "receive", DefaultValue = false,
@@ -29,6 +29,7 @@ namespace PS03.CommandLineOptions
         [Option('p', "port", Required = false,
             HelpText = "port to transmit/receive through")]
         public int Port { get; set; }
+
 
         [ParserState]
         public IParserState LastParserState { get; set; }

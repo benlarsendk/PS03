@@ -22,10 +22,11 @@ namespace PS03
             var _presenter = new Presentation.Presenter();
             IPrinter fp = new FilePrinter();
             DataFormatter rp = new ReportFormatter();
+            WordlistGenerator wg = new WordlistGenerator();
 
             _options.HandleArgs(args);
             _presenter.ShowWelcome();
-       //     _options.Verbose = true;
+           _options.Verbose = true;
             _options.Log = true;
 
 
@@ -70,6 +71,7 @@ namespace PS03
 
                     var formatted = rp.Format(ProfList);
                     fp.Print(formatted);
+                    wg.Generate(ProfList);
 
                 }
             }
